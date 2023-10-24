@@ -18,13 +18,13 @@ public class Player {
         while (true) {
             System.out.println("Where would you like to play? (1-9)");
             userInput = scanner.nextLine();
-            if (player.isValidMove(board, userInput)) {
+            if (player.isValidMove(board, Integer.valueOf(userInput))) {
                 break;
             } else {
                 System.out.println(userInput + " is not a valid move.");
             }
         }
-        player.placeMove(board, userInput, 'X');
+        player.placeMove(board, Integer.valueOf(userInput), 'X');
     }
 
 }

@@ -10,16 +10,14 @@ public class Board {
 		System.out.println(board[2][0] + "|" +  board[2][1] + "|" +  board[2][2] );
 	}
   
-    public char[][] printNewBoard(char[][] board) {
+    public void printNewBoard(char[][] board) {
         
-        board = new char[][]{
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '}
-        };
-        
-    return board;    
-    
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j]=' ';
+            }
+        }
+        printBoard(board);
     }
     
 }

@@ -5,11 +5,11 @@ public class TicTacToeMain {
 
     public static void main(String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
         Board finalBoard = new Board();
         LogicGame connector = new LogicGame();
         Computer connectComp = new Computer();
+        String respuesta = "S";
 
         char[][] board = {
             {' ', ' ', ' '},
@@ -17,10 +17,12 @@ public class TicTacToeMain {
             {' ', ' ', ' '}
         };
         System.out.println("Como te gustaria jugar?\n 1. Jugador-Jugador\n 2. Jugador-Computadora");
-        String opcion = scanner.next();
+        int opcion = scanner.nextInt();
 
         switch (opcion) {
-            case "1":
+            case 1:
+                int counterPlayer1 = 0;
+                int counterPlayer2 = 0;
                 System.out.println("Ingrese el nombre del jugador 1:");
                 String jugador1 = scanner.next();
 
@@ -29,38 +31,43 @@ public class TicTacToeMain {
 
                 finalBoard.printBoard(board);
 
-          
-                    connector.logicTwoPlayers(board, scanner);
-                    if (connector.verifyWon(board, 'X')) {
-                        System.out.println(jugador1 + " ha ganado! :D");
+                while (respuesta.equalsIgnoreCase("S")) {
 
-                        finalBoard.printBoard(board);
-                        break;
-                    }else if(connector.verifyWon(board, 'O')){
-                        System.out.println(jugador2 + " ha ganado! :D");
+                    int result = connector.logicTwoPlayers(board, scanner);
+                    if (result == 1) {
+                        System.out.println("Gano " + jugador1);
+                        counterPlayer1++;
 
-                        finalBoard.printBoard(board);
-                        break;
-                    }else{
-                     System.out.println("The game ended in a tie!");
-
-                    
+                    } else {
+                        if (result == 2) {
+                            System.out.println("Gano " + jugador2);
+                            counterPlayer2++;
+                        } else {
+                            System.out.println("Empate");
+                        }
                     }
-                  
-                
-            case "2":
+                    System.out.println("------ Resultados: ------\nVictorias de " + jugador1 + ": " + counterPlayer1 + "\nVictorias de " + jugador2 + ": " + counterPlayer2);
+
+                    System.out.println("--------------------------\nQuiere otra ronda? S/N");
+                    respuesta = scanner.next();
+                    finalBoard.printNewBoard(board);
+
+                }
+
+                break;
+            case 2:
 
                 int playerWinCounter = 0;
                 int computerWinCounter = 0;
                 System.out.println("Ingrese su nombre:");
                 String namePlayer = scanner.next();
-                String respuesta = "S";
-                
-                while(respuesta.equalsIgnoreCase("S")){
-                    
+
+                while (respuesta.equalsIgnoreCase("S")) {
+
                     finalBoard.printNewBoard(board);
 
                     while (true) {
+
                         System.out.println("---------------------");
                         connector.playerTurn(board, scanner);
                         if (connector.isGameFinished(board)) {

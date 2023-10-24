@@ -14,12 +14,12 @@ public class Computer {
 		
 		while (true) {
 			computerMove = rand.nextInt(9) + 1;
-			if (comp.isValidMove(board, Integer.toString(computerMove))) {
+			if (comp.isValidMove(board, computerMove)) {
 				break;
 			}
 		}
 		System.out.println("----- Our incredible computer chose:  " + computerMove+" -----");
-		comp.placeMove(board, Integer.toString(computerMove), 'O');
+		comp.placeMove(board, computerMove, 'O');
 	}
     }
 
