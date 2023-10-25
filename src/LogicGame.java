@@ -71,12 +71,12 @@ public class LogicGame {
         String userInput;
 
         finalBoard.printBoard(board);
-        System.out.println("Where would you like to play? (1-9)");
+        System.out.println("\"Elige una posición? (1-9)");
 
         do {
             userInput = scanner.nextLine().trim();
             if (userInput.isEmpty() || !isValidMove(board, Integer.valueOf(userInput))) {
-                System.out.println("Please enter a valid move.");
+                System.out.println("Por favor elige una casilla válida");
             }
         } while (userInput.isEmpty() || !isValidMove(board, Integer.valueOf(userInput)));
 
@@ -141,7 +141,7 @@ public class LogicGame {
 
         if (verifyWon(board, 'O')) {
             printB.printBoard(board);
-            System.out.println("Computer wins!");
+            System.out.println("Ganó la computadora");
             return true;
         }
 
@@ -153,7 +153,7 @@ public class LogicGame {
             }
         }
         printB.printBoard(board);
-        System.out.println("The game ended in a tie!");
+        System.out.println("El juego terminó en empate");
         return true;
     }
 
@@ -193,7 +193,7 @@ public class LogicGame {
                     return 1;
                 }
             } else {
-                System.out.println(inputPlayer1 + " is not a valid move.");
+                System.out.println(inputPlayer1 + " No es un movimiento válido");
             }
             if (TwoPlayersFinished(board)) {
                 return 0;
@@ -207,7 +207,7 @@ public class LogicGame {
                     return 2;
                 }
             } else {
-                System.out.println(inputPlayer2 + " is not a valid move.");
+                System.out.println(inputPlayer2 + " No es un movimiento válido");
             }
 
         }

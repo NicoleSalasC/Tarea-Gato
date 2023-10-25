@@ -28,7 +28,7 @@ public class Computer {
                 break;
             }
         }
-        System.out.println("----- Our incredible computer chose:  " + computerMove + " -----");
+        System.out.println("----- La increible computadora eligió: " + computerMove + " -----");
         comp.placeMove(board, computerMove, 'O');
     }
 }

@@ -26,12 +26,12 @@ public class Player {
 
         String userInput;
         while (true) {
-            System.out.println("Where would you like to play? (1-9)");
+            System.out.println("Donde queres colocar la X? 1-9");
             userInput = scanner.nextLine();
             if (player.isValidMove(board, Integer.valueOf(userInput))) {
                 break;
             } else {
-                System.out.println(userInput + " is not a valid move.");
+                System.out.println(userInput + " No es un movimiento válido");
             }
         }
         player.placeMove(board, Integer.valueOf(userInput), 'X');

@@ -79,7 +79,7 @@ public class TicTacToeMain {
                         System.out.println("---------------------");
                         connector.playerTurn(board, scanner);
                         if (connector.isGameFinished(board)) {
-                            System.out.println(namePlayer + " wins! yay! :D");
+                            System.out.println(namePlayer + "Ganaste! yay! :D");
                             playerWinCounter++;
                             break;
                         }
