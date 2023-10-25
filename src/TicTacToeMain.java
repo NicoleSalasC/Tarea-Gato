@@ -1,8 +1,16 @@
 
 import java.util.Scanner;
 
-public class TicTacToeMain {
+/**
+ * Esta es la clase principal.
+ * @author sergi
+ */
 
+public class TicTacToeMain {
+/**
+ * Este es el método principal del juego.
+ * @param args 
+ */
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

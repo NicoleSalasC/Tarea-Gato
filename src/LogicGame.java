@@ -1,19 +1,20 @@
 
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 /**
- *
- * @author n
+ * Esta clase es la lógica del jugador vs jugador.
+ * @author sergi
  */
 public class LogicGame {
 
     Board finalBoard = new Board();
 
-    //Logica para verificar si está el mismo simbolo en línea de 3
+    /**
+     * Este metodo sirve para verificar si está el mismo simbolo en línea de 3
+     * @param board Recibe el tablero como parametro.
+     * @param symbol Recibe X o O dependiendo del turno.
+     * @return 
+     */
     public boolean verifyWon(char[][] board, char symbol) {
         if ((board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol)
                 || (board[1][0] == symbol && board[1][1] == symbol && board[1][2] == symbol)
@@ -27,11 +28,17 @@ public class LogicGame {
         }
         return false;
     }
-
+    
+    
+/**
+ * Este metodo sirve para validar si la posicion seleccionada está vacia.
+ * @param board Recibe el tablero como parametro.
+ * @param position recibe la posicion ingresada por el jugador.
+ * @return devuelve true si el espacio en el tablero está vacio.
+ */
     public boolean isValidMove(char[][] board, int position) {
         switch (position) {
             case 1:
-                //Return true si el espacio está vacio, de lo contrario devuelve false y da el mensaje
                 return (board[0][0] == ' ');
             case 2:
                 return (board[0][1] == ' ');
@@ -54,6 +61,12 @@ public class LogicGame {
         }
     }
 
+    /**
+     * Este método sirve para que el jugador eliga una posicion en el tablero 
+     * cuando es jugados vs jugador.
+     * @param board Recibe el tablero como parametro.
+     * @param scanner Recibe el scanner como parametro para leer la posicion.
+     */
     public void playerTurn(char[][] board, Scanner scanner) {
         String userInput;
 
@@ -70,6 +83,13 @@ public class LogicGame {
         placeMove(board, Integer.valueOf(userInput), 'X');
     }
 
+    /**
+     * Este metodo sirve para añadir el simbolo una vez comprobado que la 
+     * posicion está vacía.
+     * @param board Recibe el tablero como parametro.
+     * @param position Recibe la posicion ingresada por el jugador.
+     * @param symbol Recibe el simbolo X o Y dependiendo del caso.
+     */
     public void placeMove(char[][] board, int position, char symbol) {
         switch (position) {
             case 1:
@@ -104,6 +124,12 @@ public class LogicGame {
         }
     }
 
+    /**
+     * Este metodo sirve para comprobar si el juego jugador vs computadora 
+     * finaliza.
+     * @param board Recibe el tablero como parametro.
+     * @return Devuelve true si algun jugador ganó.
+     */
     public boolean isGameFinished(char[][] board) {
 
         Board printB = new Board();
@@ -123,7 +149,6 @@ public class LogicGame {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == ' ') {
                     return false;
-                    //Ver video para explicar este for 
                 }
             }
         }
@@ -132,6 +157,11 @@ public class LogicGame {
         return true;
     }
 
+     /**
+     * Este metodo se utiliza para mostra el tablero en consola.
+     *
+     * @param board Recibe el tablero como parametro.
+     */
     public void printBoard(char[][] board) {
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
         System.out.println("-+-+-");
@@ -140,6 +170,13 @@ public class LogicGame {
         System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2]);
     }
 
+    /**
+     * Este metodo sigue la logica del juego para jugador vs jugador.
+     * @param board Recibe el tablero como parametro.
+     * @param scanner Recibe el scanner para leer la posicion seleccionada
+     * por el jugador.
+     * @return Devuelve un entero para utilizarlo en el método principal.
+     */
     public int logicTwoPlayers(char[][] board, Scanner scanner) {
 
         int inputPlayer1;
@@ -176,6 +213,13 @@ public class LogicGame {
         }
     }
 
+    
+    /**
+     * Este metodo sirve para verificar si el tablero aun tiene posiciones 
+     * vacias
+     * @param board Recibe el tablero como parametro.
+     * @return Devuelve true si el tablero está lleno.
+     */
     public boolean TwoPlayersFinished(char[][] board) {
 
         Board printB = new Board();
@@ -183,7 +227,6 @@ public class LogicGame {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == ' ') {
                     return false;
-                    //Ver video para explicar este for 
                 }
             }
         }
