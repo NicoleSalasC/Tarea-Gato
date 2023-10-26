@@ -10,8 +10,6 @@ public class Computer {
 
     public int computerMove;
 
-    private String winComputerCounter;
-
     /**
      * Este método sirve para que la computadora eliga una posicion aleatoria en
      * el tablero.
