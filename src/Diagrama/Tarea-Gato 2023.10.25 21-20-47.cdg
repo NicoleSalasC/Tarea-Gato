@@ -2,93 +2,47 @@
 
 <ClassDiagram name="Tarea-Gato">
   <ClassDiagramComponents>
-    <Class name="Board" package="" visibility="public" xPosition="20.0" yPosition="20.0">
-      <Fields/>
+    <Class name="Board" package="" visibility="public" xPosition="487.0" yPosition="60.0">
+      <Fields>
+        <Field name="board" type="char[][]" visibility="private"/>
+      </Fields>
       <Constructors/>
-      <Methods>
-        <Method name="printBoard" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-        <Method name="printNewBoard" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-      </Methods>
+      <Methods/>
     </Class>
-    <Class name="Computer" package="" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Computer" package="" visibility="public" xPosition="96.0" yPosition="246.0">
       <Fields>
         <Field name="computerMove" type="int" visibility="public"/>
         <Field name="winComputerCounter" type="String" visibility="private"/>
       </Fields>
       <Constructors/>
-      <Methods>
-        <Method name="computerTurn" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-      </Methods>
+      <Methods/>
     </Class>
-    <Class name="LogicGame" package="" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="LogicGame" package="" visibility="public" xPosition="487.0" yPosition="455.0">
       <Fields>
         <Field name="finalBoard" type="Board" visibility="package"/>
       </Fields>
       <Constructors/>
-      <Methods>
-        <Method name="verifyWon" returnType="boolean" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="char" name="symbol"/>
-        </Method>
-        <Method name="isValidMove" returnType="boolean" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="int" name="position"/>
-        </Method>
-        <Method name="playerTurn" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="Scanner" name="scanner"/>
-        </Method>
-        <Method name="placeMove" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="int" name="position"/>
-          <Argument type="char" name="symbol"/>
-        </Method>
-        <Method name="isGameFinished" returnType="boolean" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-        <Method name="printBoard" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-        <Method name="logicTwoPlayers" returnType="int" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="Scanner" name="scanner"/>
-        </Method>
-        <Method name="TwoPlayersFinished" returnType="boolean" visibility="public">
-          <Argument type="char[][]" name="board"/>
-        </Method>
-      </Methods>
+      <Methods/>
     </Class>
-    <Class name="Player" package="" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Player" package="" visibility="public" xPosition="942.0" yPosition="246.0">
       <Fields>
         <Field name="name" type="String" visibility="private"/>
         <Field name="playerMove" type="String" visibility="private"/>
         <Field name="winPlayerCounter" type="String" visibility="private"/>
       </Fields>
       <Constructors/>
-      <Methods>
-        <Method name="playerTurn" returnType="void" visibility="public">
-          <Argument type="char[][]" name="board"/>
-          <Argument type="Scanner" name="scanner"/>
-        </Method>
-      </Methods>
+      <Methods/>
     </Class>
-    <Class name="TicTacToeMain" package="" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Class name="TicTacToeMain" package="" visibility="public" xPosition="489.0" yPosition="264.0">
       <Fields/>
       <Constructors/>
-      <Methods>
-        <Method name="main" returnType="void" visibility="public" isStatic="true">
-          <Argument type="String[]" name="args"/>
-        </Method>
-      </Methods>
+      <Methods/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="finalBoard" source="LogicGame" target="Board" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Has" source="TicTacToeMain" target="LogicGame" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Has" source="TicTacToeMain" target="Board" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Has" source="TicTacToeMain" target="Player" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Has" source="TicTacToeMain" target="Computer" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

@@ -13,7 +13,7 @@ public class LogicGame {
      * Este metodo sirve para verificar si está el mismo simbolo en línea de 3
      * @param board Recibe el tablero como parametro.
      * @param symbol Recibe X o O dependiendo del turno.
-     * @return 
+     * @return Devuelve true si cumple alguna condicion de victoria.
      */
     public boolean verifyWon(char[][] board, char symbol) {
         if ((board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol)
@@ -128,7 +128,8 @@ public class LogicGame {
      * Este metodo sirve para comprobar si el juego jugador vs computadora 
      * finaliza.
      * @param board Recibe el tablero como parametro.
-     * @return Devuelve true si algun jugador ganó.
+     * @return Devuelve true si algun jugador ganó o si no quedan espacios 
+     * vacios
      */
     public boolean isGameFinished(char[][] board) {
 
